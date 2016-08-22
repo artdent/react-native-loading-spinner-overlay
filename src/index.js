@@ -1,4 +1,3 @@
-
 //     react-native-loading-spinner-overlay
 //     Copyright (c) 2016- Nick Baugh <niftylettuce@gmail.com>
 //     MIT Licensed
@@ -15,7 +14,9 @@
 // <https://github.com/brentvatne/react-native-overlay>
 //
 
+
 import React from 'react';
+
 import {
   StyleSheet,
   View,
@@ -41,6 +42,15 @@ const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  modalView: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   }
 });
 
@@ -101,9 +111,9 @@ export default class Spinner extends React.Component {
     );
 
     return (
-      <Modal onRequestClose={() => this.close()} visible={visible} transparent>
+      <View style={styles.modalView} zIndex={visible ? 900 : 0} onRequestClose={() => this.close()} transparent>
         {spinner}
-      </Modal>
+      </View>
     );
 
   }
@@ -113,3 +123,4 @@ export default class Spinner extends React.Component {
   }
 
 }
+
