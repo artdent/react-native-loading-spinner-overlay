@@ -91,7 +91,7 @@ export default class Spinner extends React.Component {
 
     if (!visible)
       return (
-        <View />
+        <View display="none" />
       );
 
     const spinner = (
